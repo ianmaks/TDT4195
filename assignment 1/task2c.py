@@ -22,7 +22,24 @@ def convolve_im(im, kernel,
         [type]: [np.array of shape [H, W, 3]. should be same as im]
     """
     assert len(im.shape) == 3
+    
+    # Padding
+    pad = kernel.shape[0] // 2
+    im = np.pad(im, pad_width=((pad, pad), (pad, pad), (0, 0)), mode='reflect')
 
+    # Convolution
+    for h in range(pad+1, len(im) - pad):
+        for w in range(pad+1, len(im[h]) - pad):
+            for c in range(len(im[h][w])):
+                for i in range(len(kernel)):
+                    for j in range(len(kernel[i])):
+                        try:
+                            im[h][w][c] += kernel[i][j] * im[h-pad+i][w-pad+j][c]
+                        except RuntimeWarning:
+                            print(im[h][w][c], kernel[i][j], im[h-pad+i][w-pad+j][c])
+               
+
+    im = im[pad:-pad, pad:-pad, :]
     return im
 
 
