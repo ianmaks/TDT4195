@@ -11,16 +11,33 @@ In practice, spacial sampling is accomplished by selecting the number of individ
 One can tell that an image is high-contrast by its histogram by identifying that an even distribution across the entire domain of possible values. Meaning that the pixel Iamge uses all available intensity values.
 
 ### d)
-TODO ADD CALCULATIONS
+| Hr(r)     | Pr(r)        | Fr(r) |  T(r)        |
+|:---------:|:------------:|:-----:|:------------:|
+| Hr(0) = 1 | Pr(0) = 1/15 | 1/15 |  T(0) = 7/15  |
+| Hr(1) = 1 | Pr(1) = 1/15 | 2/15  | T(1) = 14/15 |
+| Hr(2) = 0 | Pr(2) = 0    | 2/15  | T(2) = 14/15 |
+| Hr(3) = 1 | Pr(3) = 1/15 | 3/15  | T(3) = 21/15 |
+| Hr(4) = 2 | Pr(4) = 2/15 | 5/15  | T(4) = 35/15 |
+| Hr(6) = 4 | Pr(6) = 4/15 | 11/15 | T(6) = 77/15 |
+| Hr(5) = 2 | Pr(5) = 2/15 | 7/15  | T(5) = 49/15 |
+| Hr(7) = 4 | Pr(7) = 4/15 | 15/15 | T(7) = 7     |
+
 
 ### e)
 Applying a log transform will widen (brighten) the low intensities and squeeze (darken) the high intensities. Effectivley lowering the dynamic range of the imgage
 
 ### f) 
 To handle boundaries we chose reflecting the information across the edge, and on the coreners we used the same pixel as on the sides of the corner.
-TODO ADD CALCULATIONS
 
-___
+|   |   |   |   |   |   |   |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | 1 | 7 | 6 | 3 | 6 | 6 |
+| 1 | 1 | 7 | 6 | 3 | 6 | 6 |
+| 7 | 7 | 7 | 5 | 6 | 4 | 4 |
+| 5 | 5 | 4 | 7 | 7 | 0 | 0 |
+| 5 | 5 | 4 | 7 | 7 | 0 | 0 |
+
+
 
 # Task 3
 
@@ -31,6 +48,23 @@ The XOR operation cannot be represented by a single-layer, as it's not linearly 
 Hyperparameters are essentially external configuration parameters for the model chosen before training the model. For example the number of layers, and hiden units per layer. 
 
 ### c)
-The softmax function takes a vector and returns a vector of the same size where all inputs are mapped onto the range [0,1] while preserving the inputs' relative scale to one another. 
+The goal of multiclass clasification networks is to take an input and predict which one of the K classes it belongs to. To achieve this the network attempts to model a classification distribution over the k classes. The output value of each of the networks K output nodes will then be the probability that input x belongs to class {1,2,...,K}. For the probability distribution outputted by the neural net to be valid the sum of all outputs from the k nodes must be 1 and all outputs must be in the range [0,1]. We cannot guarantee that the neural network respects these limitations, so we must use a function that maps the entire number line onto [0,1] ensuring that all the outputs of the function sum to 1. This is what softmax does
+
 
 ### d)
+Firse we list out the values asked for in the task, and below we've attached an image showing the working out by hand which explains how each of the derivatives were computed 
+
+$\frac{\partial C}{\partial w_1} = -1$,
+$\frac{\partial C}{\partial w_2} = 0$,
+$\frac{\partial C}{\partial w_3} = 0$,
+$\frac{\partial C}{\partial w_4} = 0$,
+$\frac{\partial C}{\partial b_1} = 1$,
+$\frac{\partial C}{\partial b_2} = 0$,
+
+# TODO: ADD pick
+
+### e)
+$$\overline{w_1} = w_1 - \alpha \frac{\partial C}{\partial w_1} = -0.9$$
+$$\overline{w_2} = w_2 - \alpha \frac{\partial C}{\partial w_2} = 0$$
+$$\overline{b_1} = b_1 -\alpha \frac{\partial C}{\partial b_1} = 0.9$$
+
