@@ -54,6 +54,9 @@ The goal of multiclass clasification networks is to take an input and predict wh
 ### d)
 Firse we list out the values asked for in the task, and below we've attached an image showing the working out by hand which explains how each of the derivatives were computed 
 
+![Calculation](/assignment%201/image_solutions/forwardbackward.jpg)  
+
+
 $\frac{\partial C}{\partial w_1} = -1$,
 $\frac{\partial C}{\partial w_2} = 0$,
 $\frac{\partial C}{\partial w_3} = 0$,
