@@ -38,6 +38,19 @@ To handle boundaries we chose reflecting the information across the edge, and on
 | 5 | 5 | 4 | 7 | 7 | 0 | 0 |
 
 
+# Task 2
+
+### a)
+![Grey Scaled Duck](/assignment%201/image_solutions/duck_greyscale.jpeg)
+
+### b)
+![Inverse Grey Scaled Duck](/assignment%201/image_solutions/duck_inverse.jpeg)
+
+### c)
+![Sobel kernel applied to duck](/assignment%201/image_solutions/im_sobel.jpg)
+
+![Smoothing kernel applied to duck](/assignment%201/image_solutions/im_smoothed.jpg)
+
 
 # Task 3
 
@@ -54,8 +67,6 @@ The goal of multiclass clasification networks is to take an input and predict wh
 ### d)
 Firse we list out the values asked for in the task, and below we've attached an image showing the working out by hand which explains how each of the derivatives were computed 
 
-![Calculation](/assignment%201/image_solutions/forwardbackward.jpg)  
-
 
 $\frac{\partial C}{\partial w_1} = -1$,
 $\frac{\partial C}{\partial w_2} = 0$,
@@ -64,10 +75,28 @@ $\frac{\partial C}{\partial w_4} = 0$,
 $\frac{\partial C}{\partial b_1} = 1$,
 $\frac{\partial C}{\partial b_2} = 0$,
 
-# TODO: ADD pick
+![Calculation](/assignment%201/image_solutions/forwardbackward.jpg)  
+
 
 ### e)
 $$\overline{w_1} = w_1 - \alpha \frac{\partial C}{\partial w_1} = -0.9$$
 $$\overline{w_2} = w_2 - \alpha \frac{\partial C}{\partial w_2} = 0$$
 $$\overline{b_1} = b_1 -\alpha \frac{\partial C}{\partial b_1} = 0.9$$
 
+
+# Task 4
+
+### a)
+As is clear in the plot, the model trained on normalized data outperforms the one trained on non normalized data.
+
+![Normalized Data vs Unormalized Data](/assignment%201/image_solutions/task_4a_normalized.png)
+
+### b)
+In the Image we see that the highest weights drawing the shape of the numebr, with the lowest weights tracing the edges of the numbers. It seems that the network is learning to recognize the numbers by their shape and edges
+
+![Weights visualized as images](/assignment%201/image_solutions/task_4a_weights.png)
+
+### c)
+The network acheives worse performance than previusly because with a learning rate of 1.0 the network is unable to converge on a local/global minimum. In the graph its clear from the test loss plot that the model takes wild jumps during gradient descent and is physically not able to converge to the minimum with that big step sizes.
+
+![Model Trained with learning rate 1.0](/assignment%201/image_solutions/task_4c.png)
