@@ -39,19 +39,6 @@ Padded image
 | 5 | 5 | 4 | 7 | 7 | 0 | 0 |
 | 5 | 5 | 4 | 7 | 7 | 0 | 0 |
 
-
-# Task 2
-
-### a)
-![Grey Scaled Duck](/assignment%201/image_solutions/duck_greyscale.jpeg)
-
-### b)
-![Inverse Grey Scaled Duck](/assignment%201/image_solutions/duck_inverse.jpeg)
-
-### c)
-![Sobel kernel applied to duck](/assignment%201/image_solutions/im_sobel.jpg)
-
-![Smoothing kernel applied to duck](/assignment%201/image_solutions/im_smoothed.jpg)
 Kernel 
 
 |   |   |   |
@@ -69,6 +56,19 @@ Convolved image
 | -17 | -13 | 12 | 1 | -7 |
 | -3 | -3 | 1 | 9 | 8 |
 | 4 | -4 | -9 | 22 | 23 |
+
+# Task 2
+
+### a)
+![Grey Scaled Duck](/assignment%201/image_solutions/duck_greyscale.jpeg)
+
+### b)
+![Inverse Grey Scaled Duck](/assignment%201/image_solutions/duck_inverse.jpeg)
+
+### c)
+![Sobel kernel applied to duck](/assignment%201/image_solutions/im_sobel.jpg)
+
+![Smoothing kernel applied to duck](/assignment%201/image_solutions/im_smoothed.jpg)
 
 
 # Task 3
@@ -116,8 +116,11 @@ In the Image we see that the highest weights drawing the shape of the numebr, wi
 ![Weights visualized as images](/assignment%201/image_solutions/task_4a_weights.png)
 
 ### c)
-The network acheives worse performance than previusly because with a learning rate of 1.0 the network is unable to converge on a local/global minimum. In the graph its clear from the test loss plot that the model takes wild jumps during gradient descent and is physically not able to converge to the minimum with that big step sizes.
+The network achieves worse performance than previusly because with a learning rate of 1.0 the network is unable to converge on a local/global minimum. In the graph its clear from the test loss plot that the model takes wild jumps during gradient descent and is physically not able to converge to the minimum with that big step sizes.
 
 ![Model Trained with learning rate 1.0](/assignment%201/image_solutions/task_4c.png)
 
 ### d)
+The network achieves greater performance with a hidden layer because it is able to learn more complex features. The network is able to learn more complex features because it has more parameters to learn from.
+
+![Model trained with hidden layer](/assignment%201/image_solutions/task_4d.png)
