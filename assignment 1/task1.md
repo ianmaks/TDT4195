@@ -27,7 +27,9 @@ One can tell that an image is high-contrast by its histogram by identifying that
 Applying a log transform will widen (brighten) the low intensities and squeeze (darken) the high intensities. Effectivley lowering the dynamic range of the imgage
 
 ### f) 
-To handle boundaries we chose reflecting the information across the edge, and on the coreners we used the same pixel as on the sides of the corner.
+To handle boundaries we chose reflecting the information across the edge, and on the corners we used the same pixel as on the sides of the corner. \
+
+Padded image
 
 |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -50,6 +52,23 @@ To handle boundaries we chose reflecting the information across the edge, and on
 ![Sobel kernel applied to duck](/assignment%201/image_solutions/im_sobel.jpg)
 
 ![Smoothing kernel applied to duck](/assignment%201/image_solutions/im_smoothed.jpg)
+Kernel 
+
+|   |   |   |
+|:-:|:-:|:-:|
+| 1 | 0 | -1 |
+| 2 | 0 | -2 |
+| 1 | 0 | -1 |
+
+
+
+Convolved image
+
+|   |   |   |   |   |
+|:-:|:-:|:-:|:-:|:-:|
+| -17 | -13 | 12 | 1 | -7 |
+| -3 | -3 | 1 | 9 | 8 |
+| 4 | -4 | -9 | 22 | 23 |
 
 
 # Task 3
@@ -100,3 +119,5 @@ In the Image we see that the highest weights drawing the shape of the numebr, wi
 The network acheives worse performance than previusly because with a learning rate of 1.0 the network is unable to converge on a local/global minimum. In the graph its clear from the test loss plot that the model takes wild jumps during gradient descent and is physically not able to converge to the minimum with that big step sizes.
 
 ![Model Trained with learning rate 1.0](/assignment%201/image_solutions/task_4c.png)
+
+### d)
